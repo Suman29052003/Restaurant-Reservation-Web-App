@@ -1,13 +1,13 @@
 import ErrorHandler from "../Error Handling/errorHandler.js";
-import reservation from "../models/reservation.model.js"
+import Reservation from "../models/reservation.model.js"
 
-export const sendReservation = async (req,res,next) =>{
+ const sendReservation = async (req,res,next) =>{
     const {firstName,lastName,email,phone,time,date} = req.body;
     if(!firstName||!lastName||!email||!phone||!time||!date){
         return next (new ErrorHandler("Please fill the form properly",400))
     }
     try{
-        await reservation.create (firstName,lastName,email,phone,time,date);
+        await Reservation.create ({firstName,lastName,email,phone,time,date});
         res.status(200).json({success : true, message : "Reservation Sent Successfully !"})
     }
     catch (error) {
@@ -17,5 +17,8 @@ export const sendReservation = async (req,res,next) =>{
             );
             return next(new ErrorHandler(validationErrors.join(",") , 400));
         }
+        return next(error)
     }
 }
+
+export default sendReservation
