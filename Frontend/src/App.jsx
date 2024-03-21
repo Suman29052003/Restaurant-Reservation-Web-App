@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import ReservationForm from './assets/ReservationForm'
+import React from 'react'
+import "../src/index.css"
+import Home from './components/Home'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <ReservationForm />
+    <Home/>
     </>
   )
 }
