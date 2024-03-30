@@ -1,41 +1,33 @@
 import React from "react";
+import mainLogo from "./../../public/mainLogo.jpg"
 
-const Navbar = () => {
+const navbar = () => {
   return (
-    <div className="w-full h-12 bg-transparent flex list-none items-center justify-around text-white pt-6 text-lg">
-        {/* Restaurant Logo */}
-      <div className="logo font-[Ruthie,cursive] text-4xl text-yellow-400 cursor-pointer">
-        <h1>my Restaurant</h1>
+    <div className="col-span-12 h-min">
+      <div className=" w-full text-sm bg-transparent text-white p-3 sm:flex items-center justify-between hidden ">
+        {/* Nav Logo */}
+        <div className="logo w-[100px]  bg-contain">
+        <img src={mainLogo} alt="" className="bg-blend-overlay rounded-[50%]" />
+        </div>
+        {/* Nav Links */}
+        <div className="links list-none flex gap-3 ml-4">
+          <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">HOME</li>
+          <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">MENU</li>
+          <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">ABOUT</li>
+          <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">BOOK TABLE</li>
+        </div>
+        {/* Nav Icons */}
+        <div className="icons flex ">
+        <span class="m-2 material-symbols-outlined  cursor-pointer duration-300 hover:text-yellow-400 ">shopping_cart</span>
+        <span class="m-2 material-symbols-outlined  cursor-pointer duration-300 hover:text-yellow-400 ">Person</span>
+        <span class="m-2 material-symbols-outlined  cursor-pointer duration-300 hover:text-yellow-400 ">Search</span>
+        </div>
+        {/* Nav Order Button */}
+        <div className="orderBtn w-fit bg-yellow-400 px-4 py-2 shadow-lg rounded-2xl">Order Online</div>
+
       </div>
-
-         {/* Navigation Buttons */}
-      <div className="font-[Roboto Condensed, sans-serif] flex gap-10">
-          <li className="cursor-pointer hover:text-yellow-400 duration-150">Home</li>
-          <li className="cursor-pointer hover:text-yellow-400 duration-150">Menu</li>
-          <li className="cursor-pointer hover:text-yellow-400 duration-150">About</li>
-          <li className="cursor-pointer hover:text-yellow-400 duration-150">Book Table</li>
-      </div>
-
-         {/* Login/Sign up Button */}
-      <div className="flex gap-5">
-          <li className="cursor-pointer">
-            <span class="material-symbols-outlined hover:text-yellow-400 duration-150">person</span>
-          </li>
-          <li className="cursor-pointer">
-            <span class="material-symbols-outlined hover:text-yellow-400 duration-150">shopping_cart</span>
-          </li>
-          <li className="cursor-pointer">
-            <span class="material-symbols-outlined hover:text-yellow-400 duration-150">search</span>
-          </li>
-      </div>
-
-        {/* Order Online Button */}
-    <div className="font-[Roboto Condensed, sans-serif] flex bg-yellow-400 px-5 py-2 rounded-3xl cursor-pointer hover:scale-[1.1] hover:bg-yellow-500 duration-150">
-        <span>Order Online</span>
-    </div>
-
     </div>
   );
 };
 
-export default Navbar;
+export default navbar;
