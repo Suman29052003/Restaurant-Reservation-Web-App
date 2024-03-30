@@ -4,13 +4,13 @@ import mainLogo from "./../../public/mainLogo.jpg"
 const navbar = () => {
   return (
     <div className="col-span-12 h-min">
-      <div className=" w-full text-sm bg-transparent text-white p-3 sm:flex items-center justify-between hidden ">
+      <div className=" w-full text-sm bg-transparent text-white p-3 sm:flex items-center justify-around hidden ">
         {/* Nav Logo */}
         <div className="logo w-[100px]  bg-contain">
         <img src={mainLogo} alt="" className="bg-blend-overlay rounded-[50%]" />
         </div>
         {/* Nav Links */}
-        <div className="links list-none flex gap-3 ml-4">
+        <div className="links list-none flex gap-6 ml-4">
           <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">HOME</li>
           <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">MENU</li>
           <li className=" font-semibold cursor-pointer duration-300 hover:text-yellow-400">ABOUT</li>
