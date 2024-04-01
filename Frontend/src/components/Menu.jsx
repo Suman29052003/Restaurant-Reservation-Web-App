@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import card_burger from "./../../public/card_burger.jpg";
 import card_french_fries from "./../../public/card_french_fries.jpg";
 import card_pizza from "./../../public/card_pizza.jpg";
@@ -79,41 +79,59 @@ const cardsObj = [
 ];
 
 const Menu = () => {
+  const [seeMore, setSeeMore] = useState(-1);
+
   return (
-    <div className="menu w-full h-[80vh] flex justify-center  ">
-      <div className="w-[80%] ">
-        {cardsObj.map((card, index) => (
-          <div key={index} className="scale-75 ">
-            <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-              <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                <img
-                  src={card.img}
-                  alt="img-blur-shadow"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                  {card.title}
-                </h5>
-                <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                  {card.des}
-                </p>
-              </div>
-              <div className="p-6 pt-0">
-                <button
-                  className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  type="button"
-                  data-ripple-light="true"
-                >
-                  Read More
-                </button>
+    <>
+      <div className="relative top-8 text-3xl font-bold mb-4 col-span-full text-center p-8">
+        Our Menu
+      </div>
+      <div className="menu w-full h-[100vh] flex justify-center col-start-1 col-end-12 ">
+        <div className="w-[80%] grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24 ">
+          {cardsObj.map((card, index) => (
+            <div key={index} className="card scale-50 sm:scale-75 md:scale-100 ">
+              <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+                  <img
+                    src={card.img}
+                    alt="img-blur-shadow"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                    {card.title}
+                  </h5>
+                  <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                    {card.des.length > 30
+                      ? `${card.des.slice(0, 30)}...`
+                      : card.des}
+                    {card.des.length > 30 && (
+                      <span
+                        className="text-blue-500 cursor-pointer"
+                        // onClick={setSeeMore(seeMore === index ? -1 : index)}
+                      >
+                        See More
+                      </span>
+                    )}
+                    
+                  </p>
+                </div>
+                <div className="p-6 pt-0">
+                  <button
+                    className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="button"
+                    data-ripple-light="true"
+                  >
+                    Order Now
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

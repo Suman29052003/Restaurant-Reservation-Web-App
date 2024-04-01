@@ -2,6 +2,7 @@ import React from "react";
 import "../src/index.css";
 import Home from "./components/Home";
 import OfferPage from "./components/OfferPage";
+import Menu from "./components/Menu";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Home />
 
       <OfferPage />
-
+      <Menu/>
       
     </div>
   );

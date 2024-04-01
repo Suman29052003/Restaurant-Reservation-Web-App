@@ -1,7 +1,6 @@
 import React from "react";
 import burger from "./../../public/burger.png";
 import pizza from "./../../public/pizza.jpg";
-import Menu from "./Menu";
 
 const OfferPage = () => {
   return (
@@ -49,7 +48,7 @@ const OfferPage = () => {
           </div>
         </div>
       </div>
-      <Menu/>
+      
     </div>
     
   );
