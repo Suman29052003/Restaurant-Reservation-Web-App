@@ -83,14 +83,14 @@ const Menu = () => {
 
   return (
     <>
-      <div className="relative top-8 text-3xl font-bold mb-4 col-span-full text-center p-8">
+      <div className="relative top-[70%] sm:top-0 text-3xl font-bold mb-16 col-span-full text-center p-6">
         Our Menu
       </div>
-      <div className="menu w-full h-[100vh] flex justify-center col-start-1 col-end-12 ">
-        <div className="w-[80%] grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24 ">
+      <div className="menu w-full h-[100vh] flex justify-center col-start-1 col-end-12 relative sm:top-0 top-[4.5rem] ">
+        <div className="sm:w-[80%] w-[90%] grid  md:grid-cols-3 gap-16 md:gap-24 ">
           {cardsObj.map((card, index) => (
-            <div key={index} className="card scale-50 sm:scale-75 md:scale-100 ">
-              <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div key={index} className="card scale-100 hover:scale-105 duration-100 md:scale-100 ">
+              <div className="relative flex w-96 flex-col rounded-xl bg-gradient-to-br from-[#222831] to-[#656565] bg-clip-border text-white shadow-md">
                 <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                   <img
                     src={card.img}
@@ -119,7 +119,7 @@ const Menu = () => {
                 </div>
                 <div className="p-6 pt-0">
                   <button
-                    className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-yellow-200 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button"
                     data-ripple-light="true"
                   >
@@ -131,6 +131,7 @@ const Menu = () => {
           ))}
         </div>
       </div>
+
     </>
   );
 };

@@ -6,7 +6,7 @@ const OfferPage = () => {
   return (
     <div className="col-span-12 h-[30vh] grid grid-cols-1 sm:grid-cols-2 justify-center items-center  sm:gap-8">
       <div className="grid  items-center">
-        <div className=" bg-[#233] p-[1.5rem] px-4 flex rounded-lg sm:m-8 m-4 w-[95%] sm:w-[80%]">
+        <div className=" bg-[#233] p-[1.5rem] px-4 flex rounded-lg sm:m-8 m-4 w-[95%] sm:w-[80%] hover:scale-105 duration-100">
           <img
             src={burger}
             alt=""
@@ -28,7 +28,7 @@ const OfferPage = () => {
       </div>
 
       <div className="grid  items-center">
-        <div className=" bg-[#233] p-[1.5rem] px-4 flex rounded-lg sm:m-8 m-4 w-[95%] sm:w-[80%]">
+        <div className=" bg-[#233] p-[1.5rem] px-4 flex rounded-lg sm:m-8 m-4 w-[95%] sm:w-[80%] hover:scale-105 duration-100">
           <img
             src={burger}
             alt=""

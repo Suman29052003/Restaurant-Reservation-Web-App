@@ -11,7 +11,7 @@ const App = () => {
 
       <OfferPage />
       <Menu/>
-      
+    
     </div>
   );
 };
