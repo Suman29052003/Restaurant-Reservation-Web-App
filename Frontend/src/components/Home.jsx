@@ -20,13 +20,13 @@ const Home = () => {
               Consequatur esse perspiciatis asperiores nihil voluptate cumque
               excepturi aspernatur vero itaque enim!
             </p>
-            <div className="orderBtn w-fit bg-yellow-400 px-6 py-2 shadow-lg rounded-2xl">
+            <div className="orderBtn w-fit bg-yellow-400 px-6 py-2 shadow-lg rounded-2xl hover:scale-105 duration-100">
               Order Now
             </div>
           </div>
 
           <div className="col-span-5  justify-center items-center ">
-            <div className="relative hidden sm:block scale-75 relative top-[-20%] aspect-auto grid justify-center items-center ">
+            <div className="relative hidden sm:block scale-75 top-[-20%] aspect-auto grid justify-center items-center ">
               <img src={homeImg} alt="" className="object-fit" />
             </div>
             

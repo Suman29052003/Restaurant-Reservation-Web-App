@@ -79,60 +79,59 @@ const cardsObj = [
 ];
 
 const Menu = () => {
-  const [seeMore, setSeeMore] = useState(-1);
+  const [expandedIndex, setExpandedIndex] = useState(-1);
+
+  const toggleDescription = (index) => {
+    setExpandedIndex(index === expandedIndex ? -1 : index);
+  };
 
   return (
-    <>
-      <div className="relative top-[70%] sm:top-0 text-3xl font-bold mb-16 col-span-full text-center p-6">
-        Our Menu
-      </div>
-      <div className="menu w-full h-[100vh] flex justify-center col-start-1 col-end-12 relative sm:top-0 top-[4.5rem] ">
-        <div className="sm:w-[80%] w-[90%] grid  md:grid-cols-3 gap-16 md:gap-24 ">
-          {cardsObj.map((card, index) => (
-            <div key={index} className="card scale-100 hover:scale-105 duration-100 md:scale-100 ">
-              <div className="relative flex w-96 flex-col rounded-xl bg-gradient-to-br from-[#222831] to-[#656565] bg-clip-border text-white shadow-md">
-                <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                  <img
-                    src={card.img}
-                    alt="img-blur-shadow"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                    {card.title}
-                  </h5>
-                  <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                    {card.des.length > 30
-                      ? `${card.des.slice(0, 30)}...`
-                      : card.des}
-                    {card.des.length > 30 && (
-                      <span
-                        className="text-blue-500 cursor-pointer"
-                        // onClick={setSeeMore(seeMore === index ? -1 : index)}
-                      >
-                        See More
-                      </span>
-                    )}
-                    
-                  </p>
-                </div>
-                <div className="p-6 pt-0">
-                  <button
-                    className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-yellow-200 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                    type="button"
-                    data-ripple-light="true"
-                  >
-                    Order Now
-                  </button>
-                </div>
+    <div className="menu w-full h-[100vh] flex justify-center col-start-1 col-end-12 relative top-[14%] md:top-0 ">
+      <div className="w-full sm:w-[80%] grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-32 md:gap-x-48 lg:gap-x-32 ">
+        <div className="text-3xl font-bold mb-2 col-span-full text-center">Our Menu</div>
+        {cardsObj.map((card, index) => (
+          <div key={index} className="card scale-[75%]  hover:scale-[80%] duration-100">
+            <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+              <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+                <img
+                  src={card.img}
+                  alt="img-blur-shadow"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  {card.title}
+                </h5>
+                <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                  {expandedIndex === index || card.des.length <= 30
+                    ? card.des
+                    : `${card.des.slice(0, 30)}...`}
+                  {card.des.length > 30 && (
+                    <span
+                      className="text-blue-500 cursor-pointer"
+                      onClick={() => toggleDescription(index)}
+                    >
+                      {expandedIndex === index ? "See Less" : "See More"}
+                      <span class="material-symbols-outlined top-[6px] relative">{expandedIndex === index? "expand_less":"expand_more"}</span>
+                    </span>
+                  )}
+                </p>
+              </div>
+              <div className="p-6 pt-0">
+                <button
+                  className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  type="button"
+                  data-ripple-light="true"
+                >
+                  Order Now
+                </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-
-    </>
+    </div>
   );
 };
 

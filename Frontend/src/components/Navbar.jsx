@@ -23,7 +23,7 @@ const navbar = () => {
         <span class="m-2 material-symbols-outlined  cursor-pointer duration-300 hover:text-yellow-400 ">Search</span>
         </div>
         {/* Nav Order Button */}
-        <div className="orderBtn w-fit bg-yellow-400 px-4 py-2 shadow-lg rounded-2xl">Order Online</div>
+        <div className="orderBtn w-fit bg-yellow-400 px-4 py-2 shadow-lg rounded-2xl hover:scale-105 duration-100">Order Online</div>
 
       </div>
     </div>
